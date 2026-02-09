@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Transact ",
+    "product": "QuickCharge",
+    "account_rep": null,
+    "account_rep_phone": null,
+    "account_rep_email": null,
+    "support_level": "premium",
+    "notes": null,
+    "primary_contact_id": 2,
+    "secondary_contact_id": null,
+    "created_at": "2026-02-08T22:48:29.181Z",
+    "updated_at": "2026-02-08T23:11:16.364Z"
+  },
+  {
+    "id": 2,
+    "name": "ArbaPro",
+    "product": "ArbaPro Manager ",
+    "account_rep": "Sam Zimmerman",
+    "account_rep_phone": null,
+    "account_rep_email": "sam@arbapro.com",
+    "support_level": "premium",
+    "notes": null,
+    "primary_contact_id": 2,
+    "secondary_contact_id": null,
+    "created_at": "2026-02-08T23:11:02.959Z",
+    "updated_at": "2026-02-08T23:11:02.959Z"
+  }
+]
