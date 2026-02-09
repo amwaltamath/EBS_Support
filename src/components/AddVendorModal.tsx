@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { vendors, team } from "../lib/api";
+import { vendors } from "../lib/api";
 
 interface AddVendorModalProps {
   isOpen: boolean;

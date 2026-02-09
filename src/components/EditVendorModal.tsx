@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { vendors, team } from "../lib/api";
+import { vendors } from "../lib/api";
 
 interface EditVendorModalProps {
   isOpen: boolean;

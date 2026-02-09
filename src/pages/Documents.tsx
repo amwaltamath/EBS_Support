@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 import { vendors, documents } from "../lib/api";
 
-interface Vendor {
-  id: number;
-  name: string;
-  product?: string;
-}
-
 interface Document {
   id: number;
   vendor_id: number;
@@ -20,7 +14,6 @@ interface Document {
 }
 
 const Documents = () => {
-  const [allVendors, setAllVendors] = useState<Vendor[]>([]);
   const [allDocuments, setAllDocuments] = useState<Document[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
@@ -30,7 +23,6 @@ const Documents = () => {
     const fetchData = async () => {
       try {
         const vendorsData = await vendors.getAll();
-        setAllVendors(vendorsData);
 
         // Fetch documents for each vendor and combine them
         const allDocs: Document[] = [];
@@ -62,7 +54,7 @@ const Documents = () => {
   const filteredDocuments = allDocuments.filter((doc) => {
     const query = searchQuery.toLowerCase();
     return (
-      doc.vendor_name.toLowerCase().includes(query) ||
+      (doc.vendor_name?.toLowerCase().includes(query) ?? false) ||
       (doc.vendor_product?.toLowerCase().includes(query) ?? false) ||
       doc.title.toLowerCase().includes(query) ||
       doc.file_name.toLowerCase().includes(query)

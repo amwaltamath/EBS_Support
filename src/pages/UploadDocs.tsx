@@ -44,7 +44,7 @@ const UploadDocs = () => {
 
     setIsUploading(true);
     try {
-      await documents.upload(selectedVendorId, title, file);
+      await documents.upload(parseInt(selectedVendorId), title, file);
       setSuccess("Document uploaded successfully!");
       setTitle("");
       setFile(null);

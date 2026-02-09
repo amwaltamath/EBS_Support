@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { team } from "../lib/api";
 
 interface AddMemberModalProps {
   isOpen: boolean;

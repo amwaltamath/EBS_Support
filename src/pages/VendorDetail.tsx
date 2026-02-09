@@ -39,7 +39,6 @@ const VendorDetail = () => {
   const [error, setError] = useState("");
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     const fetchVendor = async () => {
@@ -87,6 +86,17 @@ const VendorDetail = () => {
 
   const handleDownloadDocument = (docId: number) => {
     window.open(`http://localhost:3001/api/documents/${docId}/download`, "_blank");
+  };
+
+  const handleDeleteConfirm = async () => {
+    if (!id) return;
+    try {
+      await vendors.delete(parseInt(id));
+      navigate("/vendors");
+    } catch (err: any) {
+      setError(err.message || "Failed to delete vendor");
+      setIsDeleteModalOpen(false);
+    }
   };
 
   if (isLoading) {
@@ -409,7 +419,7 @@ const VendorDetail = () => {
         onConfirm={handleDeleteConfirm}
         title="Delete vendor?"
         message={`Are you sure you want to delete "${vendor?.name}"? This action cannot be undone.`}
-        isLoading={isDeleting}
+        isLoading={false}
       />
     </section>
   );
